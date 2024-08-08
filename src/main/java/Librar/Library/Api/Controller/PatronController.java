@@ -39,7 +39,7 @@ public class PatronController {
     }
 
     @PostMapping
-    public ResponseEntity<?>   createPatron(@Valid @RequestBody PatronDto patronDto) {
+    public ResponseEntity<?>      createPatron(@Valid @RequestBody PatronDto patronDto) {
         if (patronService.checkIfPatronExists(patronDto)) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(new ErrorResponse("Patron with name '" + patronDto.getName() + "' already exists."));
