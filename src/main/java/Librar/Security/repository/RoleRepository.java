@@ -1,0 +1,12 @@
+package Librar.Security.repository;
+
+
+
+import Librar.Library.Modes.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    Optional<Role> findByName(String name);
+}

@@ -68,7 +68,7 @@ public class PatronController {
         }
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePatron(@PathVariable Long id) {
+    public ResponseEntity<?>  deletePatron(@PathVariable Long id) {
         if (!patronService.findPatronById(id).isPresent()) {
             // Patron not found
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
