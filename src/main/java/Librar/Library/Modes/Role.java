@@ -1,30 +1,24 @@
 package Librar.Library.Modes;
 
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Set;
+
 @Entity
-@Data
-@Setter
-@Getter
 @Table(name = "role")
- public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Data
+public class Role {
 
-    private String name;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "id")
+   private Long id;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<AppUser> users;
-}
+   @Column(name = "name")
+   private String name;
+
+   @ManyToMany(mappedBy = "roles")
+   private Set<User> users;}
+
+// No need for explicit getters and setters with @Data annotation
